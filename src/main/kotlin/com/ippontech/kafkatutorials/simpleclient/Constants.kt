@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.util.StdDateFormat
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
-val personsTopic = "persons"
+val personsTopic = "source"
 val personsAvroTopic = "persons-avro"
-val agesTopic = "ages"
+val agesTopic = "target"
 
 val jsonMapper = ObjectMapper().apply {
     registerKotlinModule()

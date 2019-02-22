@@ -8,18 +8,19 @@ import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.StringSerializer
-import org.apache.log4j.LogManager
+import org.slf4j.LoggerFactory
+//import org.apache.log4j.LogManager
 import java.util.*
 
 // $ kafka-topics --zookeeper localhost:2181 --create --topic persons --replication-factor 1 --partitions 4
 
 fun main(args: Array<String>) {
-    SimpleProducer("localhost:9092").produce(2)
+    SimpleProducer("localhost:9092").produce(20)
 }
 
 class SimpleProducer(brokers: String) {
 
-    private val logger = LogManager.getLogger(javaClass)
+    private val logger = LoggerFactory.getLogger(javaClass) // LogManager.getLogger(javaClass)
     private val producer = createProducer(brokers)
 
     private fun createProducer(brokers: String): Producer<String, String> {
